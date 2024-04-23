@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.mokcoding.ex02.config.RootConfig;
 import com.mokcoding.ex02.config.WebConfig;
 import com.mokcoding.ex02.domain.BoardVO;
+import com.mokcoding.ex02.util.Pagination;
 
 import lombok.extern.log4j.Log4j;
 
@@ -28,10 +29,20 @@ public class BoardMapperTest {
 		//testBoardSelectList();
 		//testBoardSelectOne();
 		//testBoardUpdate();
-		testBoardDelete();
+		//testBoardDelete();
+		testBoardListPagination();
 	}
 
 	
+	private void testBoardListPagination() {
+		Pagination pagination = new Pagination(2, 5);
+		List<BoardVO> list = boardMapper.selectListByPagination(pagination);
+		for(BoardVO vo : list) {
+			log.info(vo);
+		}
+	} // end testBoardListPagination
+
+
 	private void testBoardInsert() {
 		BoardVO vo = new BoardVO(0, "test title", "test content", "guest", null);
 		int result = boardMapper.insert(vo);
@@ -58,4 +69,6 @@ public class BoardMapperTest {
 		int result = boardMapper.delete(3);
 		log.info(result + "행 삭제");
 	} // testBoardDelete
+	
+	
 }

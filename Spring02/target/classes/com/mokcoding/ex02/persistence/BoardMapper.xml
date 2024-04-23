@@ -69,4 +69,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE BOARD WHERE BOARD_ID = #{boardId}
 	</delete>
 	
+	<select id="selectListByPagination" resultMap="boardResultMap">
+		SELECT * FROM (
+		SELECT BOARD.*, ROW_NUMBER() OVER(ORDER BY BOARD_ID DESC) RN
+		FROM BOARD
+		) WHERE RN BETWEEN #{start} AND #{end}
+	</select><!-- start, end는 getter로 찾아감 -->
+	
+	<!-- resultType : 쿼리 결과를 자바 객체에 매핑하기 위해 사용 -->
+	<select id="selectTotalCount" resultType="Integer">
+		SELECT COUNT(BOARD_ID) TOTAL_COUNT FROM BOARD
+	</select>
+	
 </mapper>

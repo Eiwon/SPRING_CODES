@@ -45,5 +45,4 @@ public class RootConfig {
 		return (SqlSessionFactory) sqlSessionFactoryBean.getObject();
 	} // end sqlSessionFactory
 	
-	
 } // end RootConfig
