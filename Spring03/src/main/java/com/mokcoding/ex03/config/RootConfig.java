@@ -8,6 +8,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -16,6 +19,8 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @ComponentScan(basePackages = {"com.mokcoding.ex03.service"})
+@ComponentScan(basePackages = {"com.mokcoding.ex03.aspect"})
+@EnableAspectJAutoProxy // AutoProxy 사용을 위한 어노테이션
 @MapperScan(basePackages = {"com.mokcoding.ex03.persistence"}) // 패키지 경로로 Mapper 스캐닝
 public class RootConfig {
 	
@@ -44,5 +49,12 @@ public class RootConfig {
 		sqlSessionFactoryBean.setDataSource(dataSource());
 		return (SqlSessionFactory) sqlSessionFactoryBean.getObject();
 	} // end sqlSessionFactory
+	
+	
+	// 트랜잭션 매니저 객체를 빈으로 등록
+	@Bean
+	public PlatformTransactionManager transactionManager() {
+		return new DataSourceTransactionManager(dataSource());
+	}
 	
 } // end RootConfig

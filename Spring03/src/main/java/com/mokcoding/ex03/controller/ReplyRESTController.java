@@ -59,10 +59,11 @@ public class ReplyRESTController {
 		return new ResponseEntity<Integer>(result, HttpStatus.OK);
 	} // end updateReply
 	
-	@DeleteMapping("/{replyId}")
-	public ResponseEntity<Integer> deleteReply(@PathVariable("replyId") int replyId){
+	@DeleteMapping("/{replyId}/{boardId}")
+	public ResponseEntity<Integer> deleteReply(
+			@PathVariable("replyId") int replyId, @PathVariable("boardId") int boardId){
 		log.info("deleteReply()");
-		int result = replyService.deleteReply(replyId);
+		int result = replyService.deleteReply(replyId, boardId);
 		return new ResponseEntity<Integer>(result, HttpStatus.OK);
 		
 	} // end deleteReply

@@ -1,3 +1,6 @@
 /.metadata/
 /Servers/
 /tomcat-server/
+/Spring03/.settings/
+/Spring03/.classpath
+/Spring03/.project

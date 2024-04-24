@@ -44,8 +44,10 @@ public class BoardServiceImple implements BoardService{
 	public int getTotalCount() {
 		return boardMapper.getTotalCount();
 	}
-	
-	
-	
+
+	@Override
+	public int updateReplyCount(int amount, int boardId) {
+		return boardMapper.updateReplyCount(amount, boardId);
+	}
 	
 }

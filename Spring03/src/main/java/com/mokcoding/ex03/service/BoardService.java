@@ -19,4 +19,5 @@ public interface BoardService {
 	
 	public int getTotalCount();
 	
+	public int updateReplyCount(int amount, int boardId);
 }
