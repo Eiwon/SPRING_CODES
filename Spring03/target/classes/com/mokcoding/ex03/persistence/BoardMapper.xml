@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="boardContent" column="BOARD_CONTENT"/>
 		<result property="memberId" column="MEMBER_ID"/>
 		<result property="boardDateCreated" column="BOARD_DATE_CREATED"/>
+		<result property="replyCount" column="REPLY_COUNT"/>
 	</resultMap>
 
 	<insert id="insertBoard">

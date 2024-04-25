@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="Spring01"/>
 <aop-project name="Spring02"/>
 <aop-project name="Spring03"/>
 <aop-project name="Spring04"/>
+<aop-project name="Spring01"/>
 </aop-reference-model>

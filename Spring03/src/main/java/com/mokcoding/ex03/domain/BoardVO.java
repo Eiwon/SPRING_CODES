@@ -14,7 +14,8 @@ import lombok.ToString;
 public class BoardVO {
 	private int boardId;
 	private String boardTitle;
-	private String boardCOntent;
+	private String boardContent;
 	private String memberId;
 	private Date boardDateCreated; 
+	private int replyCount;
 }
