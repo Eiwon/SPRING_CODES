@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-@Configuration
 public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer{
 
 	// root application context (Root WebApplicationContext)
